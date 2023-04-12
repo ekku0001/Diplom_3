@@ -1,4 +1,4 @@
-package pageObjects;
+package ru.yandex.praktikum.objects;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -12,54 +12,54 @@ public class ConstructorPage {
 
     private WebDriver driver;
 
-    private final By BUN_HEADER = By.xpath("//span[text() = 'Булки']");
-    private final By SAUCE_HEADER = By.xpath("//span[text() = 'Соусы']");
-    private final By FILLING_HEADER = By.xpath("//span[text() = 'Начинки']");
+    private By bunHeader = By.xpath("//span[text() = 'Булки']");
+    private By sauceHeader = By.xpath("//span[text() = 'Соусы']");
+    private By fillingHeader = By.xpath("//span[text() = 'Начинки']");
 
-    private final By BUN_SECTION = By.xpath("//h2[text() = 'Булки']");
-    private final By SAUCE_SECTION = By.xpath("//h2[text() = 'Соусы']");
-    private final By FILLING_SECTION = By.xpath("//h2[text() = 'Начинки']");
+    private By bunSection = By.xpath("//h2[text() = 'Булки']");
+    private By sauceSection = By.xpath("//h2[text() = 'Соусы']");
+    private By fillingSection = By.xpath("//h2[text() = 'Начинки']");
 
     public ConstructorPage(WebDriver driver) {
         this.driver = driver;
     }
     @Step("go to bun section")
     public void gotoBunSection() {
-        driver.findElement(BUN_HEADER).click();
+        driver.findElement(bunHeader).click();
     }
 
     @Step("go to sauce section")
     public void gotoSauceSection() {
-        driver.findElement(SAUCE_HEADER).click();
+        driver.findElement(sauceHeader).click();
     }
 
     @Step("go to filling section")
     public void gotoFillingSection() {
-        driver.findElement(FILLING_HEADER).click();
+        driver.findElement(fillingHeader).click();
     }
 
     @Step("is buns displayed")
     public boolean isBunDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(BUN_SECTION));
+                .until(ExpectedConditions.visibilityOfElementLocated(bunSection));
 
-        return driver.findElement(BUN_SECTION).isDisplayed();
+        return driver.findElement(bunSection).isDisplayed();
     }
 
     @Step("is sauces displayed")
     public boolean isSauceDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(SAUCE_SECTION));
+                .until(ExpectedConditions.visibilityOfElementLocated(sauceSection));
 
-        return driver.findElement(SAUCE_SECTION).isDisplayed();
+        return driver.findElement(sauceSection).isDisplayed();
     }
 
     @Step("is fillings displayed")
     public boolean isFillingDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(FILLING_SECTION));
+                .until(ExpectedConditions.visibilityOfElementLocated(fillingSection));
 
-        return driver.findElement(FILLING_SECTION).isDisplayed();
+        return driver.findElement(fillingSection).isDisplayed();
     }
 
 }

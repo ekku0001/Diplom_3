@@ -1,4 +1,4 @@
-package pageObjects;
+package ru.yandex.praktikum.objects;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -12,15 +12,14 @@ public class PersonalAccountPage {
     private WebDriver driver;
 
     //переход в личный кабинет
-    private final By GOTO_ACCOUNT = By.xpath("//p[text() = 'Личный Кабинет']");
+    private By gotoAccount = By.xpath("//p[text() = 'Личный Кабинет']");
 
-    private final By GOTO_CONSTUCTOR = By.xpath("//p[text() = 'Конструктор']");
-    private final By LOGO_STELLAR_BURGERS = By.className("AppHeader_header__logo__2D0X2");
+    private By gotoConstructor = By.xpath("//p[text() = 'Конструктор']");
+    private By logoStellarBurgers = By.className("AppHeader_header__logo__2D0X2");
 
-    private final By LOGOUT_BUTTON = By.xpath("//button[text() = 'Выход']");
+    private By logoutButton = By.xpath("//button[text() = 'Выход']");
 
-    private final By CREATEBURGER_HEADER = By.xpath("//h1[text() = 'Соберите бургер']");
-
+    private By createBurgerHeader = By.xpath("//h1[text() = 'Соберите бургер']");
 
 
 
@@ -30,43 +29,43 @@ public class PersonalAccountPage {
 
     @Step("go to account page")
     public void gotoAccountPage(){
-        driver.findElement(GOTO_ACCOUNT).click();
+        driver.findElement(gotoAccount).click();
     }
 
     @Step("go to constructor page")
     public void gotoConstructorByButton() {
-        driver.findElement(GOTO_CONSTUCTOR).click();
+        driver.findElement(gotoConstructor).click();
     }
 
     @Step("go to account page")
     public void gotoConstructorByLogo() {
-        driver.findElement(LOGO_STELLAR_BURGERS).click();
+        driver.findElement(logoStellarBurgers).click();
     }
 
     @Step("click logout button")
     public void clickLogoutButton() {
         //wait until logout button is loaded
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(LOGOUT_BUTTON));
+                .until(ExpectedConditions.visibilityOfElementLocated(logoutButton));
 
-        driver.findElement(LOGOUT_BUTTON).click();
+        driver.findElement(logoutButton).click();
     }
 
     @Step ("is Logout button displayed")
     public boolean isLogoutButtonDisplayed(){
         //wait until logout button is loaded
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(LOGOUT_BUTTON));
+                .until(ExpectedConditions.visibilityOfElementLocated(logoutButton));
 
-        return driver.findElement(LOGOUT_BUTTON).isDisplayed();
+        return driver.findElement(logoutButton).isDisplayed();
     }
 
     @Step ("is Login button displayed")
     public boolean isConstructorPageDisplayed(){
         //wait until login page is loaded
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(CREATEBURGER_HEADER));
+                .until(ExpectedConditions.visibilityOfElementLocated(createBurgerHeader));
 
-        return driver.findElement(CREATEBURGER_HEADER).isDisplayed();
+        return driver.findElement(createBurgerHeader).isDisplayed();
     }
 }
