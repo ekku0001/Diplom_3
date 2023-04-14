@@ -1,4 +1,4 @@
-import clients.UserClient;
+import ru.yandex.praktikum.clients.UserClient;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -9,8 +9,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import pageObjects.LoginRegistrationPageBurger;
-import pageObjects.PersonalAccountPage;
+import ru.yandex.praktikum.objects.LoginRegistrationPageBurger;
+import ru.yandex.praktikum.objects.PersonalAccountPage;
 
 public class TestAccount {
     private WebDriver driver;
