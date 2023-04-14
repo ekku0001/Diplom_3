@@ -1,4 +1,4 @@
-package clients;
+package ru.yandex.praktikum.clients;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
